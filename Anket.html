@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Special School | Öğretmenlerimiz</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!--[if IE 6]><link rel="stylesheet" type="text/css" href="css/ie6.css"><![endif]-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- ... -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link href="https://unpkg.com/survey-jquery/defaultV2.min.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="https://unpkg.com/survey-jquery/survey.jquery.min.js"></script>
+    <script src="https://unpkg.com/survey-core/survey.i18n.min.js"></script>
+    <script src="https://unpkg.com/survey-core/i18n/turkish.js"></script>
+
+    
+    <!-- ... -->
+    <script>
+        const surveyJson = {
+            pages: [{
+                elements: [{
+                    name: "yas",
+                    title: "Kurumumuzdan aldığınız hizmetten memnun kaldınız mı?",
+                    type: "radiogroup",
+                    choices: [{
+                            value: 5,
+                            text: "Tamamen yeterli"
+                        },
+                        {
+                            value: 4,
+                            text: "Genellikle yeterli"
+                        },
+                        {
+                            value: 3,
+                            text: "Doğal"
+                        },
+                        {
+                            value: 2,
+                            text: "Yeterli değil"
+                        },
+                        {
+                            value: 1,
+                            text: "hiç yeterli değil"
+                        }
+                    ],
+                    isRequired: true
+                }]
+            }, {
+                elements: [{
+                    name: "what-would-make-you-more-satisfied",
+                    title: "En sevdiğiniz masal karakteri kimdir?",
+                    type: "comment",
+                }],
+            }, {
+                elements: [{
+                    name: "how-can-we-improve",
+                    title: "Mutlu olduğunuzda ne yaparsınız?",
+                    type: "comment"
+                }],
+            }, {
+                elements: [{
+                    name: "disappointing-experience",
+                    title: "Hangi oyunları arkadaşlarınızla oynamayı seversiniz?",
+                    type: "comment"
+                }],
+            }]
+        };
+        const survey = new Survey.Model(surveyJson);
+        survey.locale = "tr";
+    </script>
+</head>
+
+<body>
+    <div id="header">
+        <div> <a href="index.html"><img src="images/logo.gif" alt=""></a>
+            <ul>
+                <li><a href="index.html">Anasayfa</a></li>
+                <li><a href="about.html">Hakkımızda</a></li>
+                <li><a href="Teachers.html">Öğretmenlerimiz</a></li>
+                <li class="current"><a href="Anket.html">Anket</a></li>
+                <li><a href="contact.html">İletişim</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="content">
+        <div id="blog">
+
+            <div id="surveyContainer"></div>
+
+        </div>
+    </div>
+    </div>
+    <script>
+        $(function() {
+    $("#surveyContainer").Survey({ model: survey });
+});
+    </script>
+</body>
+
+</html>
